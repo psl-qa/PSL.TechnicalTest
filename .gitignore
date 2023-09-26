@@ -53,3 +53,5 @@ dkms.conf
 
 # Visual Studio temp something
 .vs/
+/PSL.TechnicalTest/bin/Debug/net6.0
+/PSL.TechnicalTest/obj
