@@ -10,6 +10,6 @@ Demonstrate coding ability.
 - Add one or two extra tests of your own (using Amazon as the Application Under Test).
 
 # You must
-- use the file structure provided.
-- be able to build your code and run tests successfully.
-- when you have completed, please push your branch for review.
+- Use the file structure provided.
+- Be able to build your code and run tests successfully.
+- Push your branch/code for review, once completed.
