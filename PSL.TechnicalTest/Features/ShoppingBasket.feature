@@ -1,6 +1,6 @@
-﻿Feature: Adding items to the basket
+﻿Feature: Shopping basket
 
-This feature covers the scenario of adding an item to the shopping basket
+This feature covers the correct working of the shopping basket
 
 
 Scenario: Adding items to the basket
