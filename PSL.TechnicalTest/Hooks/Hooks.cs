@@ -10,6 +10,7 @@ internal class Hooks
     [BeforeTestRun]
     public static void InitializeDriver()
     {
+        //The driver initialization can also be done for each scenario using [BeforeScenario] & [AfterScenario]
         var chromeDriver = ChromeDriverService.CreateDefaultService(Directory.GetCurrentDirectory());
 
         var chromeOptions = new ChromeOptions();
@@ -18,7 +19,7 @@ internal class Hooks
         chromeOptions.AddArgument("ignore-certificate-errors");
 
         driver = new ChromeDriver(chromeDriver, chromeOptions);
-    }
+    }    
 
     [AfterTestRun]
     public static void AfterTestRun()

@@ -23,7 +23,18 @@ internal class Steps
     public void GivenINavigateToAmazon()
     {
         driver.Navigate().GoToUrl("https://www.amazon.co.uk");
-    }   
+    }
+
+    [Given(@"I have one item in the basket")]
+    public void GivenIHaveOneItemInTheBasket()
+    {
+        //if setup was diferent this should be a Background section
+        GivenINavigateToAmazon();
+        WhenISearchForSEGAMegaDriveMiniElectronicGames();
+        WhenISelectTheSEGAMegaDriveMiniElectronicGames();
+        WhenIChooseToAddSEGAMegaDriveMiniToTheBasket();
+        ThenSEGAMegaDriveMiniIsAddedToTheBasket();
+    }
 
     [When(@"I search for SEGA Mega Drive Mini \(Electronic Games\)")]
     public void WhenISearchForSEGAMegaDriveMiniElectronicGames()
@@ -63,11 +74,17 @@ internal class Steps
         amazonHomePage.MaxPriceFilter.SendKeys(Keys.Enter);
     }
 
+    [When(@"I delete the item")]
+    public void WhenIDeleteTheItem()
+    {
+       amazonCartPage.DeleteItem.Click();
+    }
+
+
 
     [Then(@"SEGA Mega Drive Mini is added to the basket")]
     public void ThenSEGAMegaDriveMiniIsAddedToTheBasket()
     {
-
         //wait.Until(ExpectedConditions.ElementToBeClickable(amazonCartPage.GoToBasket));
         Thread.Sleep(1500);//Should not use this but unable to make it work in a more elegant way like the line comented above
         amazonCartPage.GoToBasket.Click();
@@ -79,7 +96,7 @@ internal class Steps
     {
         IList<IWebElement> searchResults = driver.FindElements(By.ClassName("a-price-whole"));
 
-        foreach (var item in searchResults.Take(5))//Had to limit it to five elements as amazon randomly adds "exclusives" that do not match the filter value
+        foreach (var item in searchResults.Take(5))//Had to limit it to five elements as amazon randomly inserts "exclusives" that do not match the filter value
         {       
             
             int itemPrice = int.Parse(item.Text);
@@ -88,5 +105,12 @@ internal class Steps
             itemPrice.Should().BeLessThan(expectedPrice, $"because item price '{item.Text}' should be lower than '{p0}'");
         }       
     }
+
+    [Then(@"The basket is shown as empty")]
+    public void ThenTheBasketIsShownAsEmpty()
+    {
+        amazonCartPage.AllShoppingBasketContents.Text.Contains("Your Amazon Cart is empty.");
+    }
+
 
 }
