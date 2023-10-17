@@ -23,6 +23,12 @@ namespace PSL.TechnicalTest.Steps
         {
             _homePage.GoToTheApp("https://www.amazon.co.uk/");
             _homePage.WaitForTimeOut();
+            var amazonBotDetector = By.XPath("//h4[text() = 'Type the characters you see in this image:']");
+            if (_homePage.IsElementDisplayed(amazonBotDetector))
+            {
+                _homePage.BrowserQuit();
+                throw new Exception("Unable to pass Amazon Bot Detector");
+            }
         }
 
         [Given(@"the user searches a razor and clicks a product")]

@@ -90,6 +90,23 @@ namespace PSL.TechnicalTest.ApplicationUnderTest.Pages
             WaitUntilElementIsVisibleExplicitWait(element);
             return _driver.FindElement(element).Text;
         }
+
+        public bool IsElementDisplayed(By element)
+        {
+            try
+            {
+                return _driver.FindElement(element).Displayed;
+            }
+            catch (NoSuchElementException)
+            {
+                return false;
+            }
+        }
+        public void BrowserQuit()
+        {
+            _driver.Quit();
+        }
+
     }
 
 }
