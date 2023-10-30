@@ -5,11 +5,11 @@ This test will enable the PSL team to review your code before the interview stag
 Demonstrate coding ability.
 
 # Tasks
-- Create a branch off main; name the branch using your first and last name, e.g 'john-smith'.  **Please don't push any code to main.**
-- Implement code on your branch to test navigating to the amazon.co.uk website, selecting an item (example: a sports watch) and adding this to the basket.  You must write your tests using the 'gherkin' syntax.
-- Add one or two extra tests of your own (using Amazon as the Application Under Test).
+- Create an account in GitHub (if you don't have one already). Clone the Technical Test repo and make a copy of it in your GitHub account.  Push changes to your repo, then share the link when the test is complete.
+- Implement code to test navigating to the BBC News website (www.bbc.com/news). Perform a search for articles relating to Chorley. Verify that the top five results contain 'Chorley' in the title.  You must write your tests using the 'gherkin' syntax.
+- Add one or two extra tests of your own (using BBC News as the Application Under Test).
 
 # You must
 - Use the file structure provided.
 - Be able to build your code and run tests successfully.
-- Push your branch/code for review, once completed.
+- Push your code for review, once completed.
