@@ -1,2 +1,26 @@
 global using TechTalk.SpecFlow;
 global using OpenQA.Selenium;
+global using System;
+global using System.Collections.Generic;
+global using System.Linq;
+global using System.Text;
+global using System.Threading.Tasks;
+global using BoDi;
+global using OpenQA.Selenium.Chrome;
+global using OpenQA.Selenium.Edge;
+global using OpenQA.Selenium.Firefox;
+global using System.ComponentModel;
+global using System.Data;
+global using WebDriverManager;
+global using WebDriverManager.DriverConfigs.Impl;
+global using Microsoft.Extensions.Configuration;
+global using PSL.TechnicalTest.Drivers;
+global using Microsoft.Win32;
+global using PSL.TechnicalTest.Extension;
+global using Microsoft.VisualStudio.TestTools.UnitTesting;
+global using PSL.TechnicalTest.ApplicationUnderTest.Pages;
+global using System.Collections.ObjectModel;
+global using PSL.TechnicalTest.Utility;
+global using PSL.TechnicalTest.CustomMethods;
+global using OpenQA.Selenium.Support.UI;
+
