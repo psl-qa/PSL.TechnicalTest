@@ -1,9 +1,12 @@
 ﻿Feature: Example
 
-A short summary of the feature
+Coding Ability Test
+Test Designed by Victor Mayomi
 
-@ignore
-Scenario: [scenario name]
-	Given [context]
-	When [action]
-	Then [outcome]
+
+Scenario: Search Functionallity Test
+	Given I Navigate to bbc homepage
+	And I click on searchField
+	Then I should be on the SearchPAge
+	When I enter Chorley in the searchfiled and click search
+	Then the top five results contain 'Chorley' in the title
