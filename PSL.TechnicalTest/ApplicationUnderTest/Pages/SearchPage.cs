@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PSL.TechnicalTest.Hooks;
+using System.Linq;
 
 namespace PSL.TechnicalTest.ApplicationUnderTest.Pages
 {
@@ -38,6 +39,29 @@ namespace PSL.TechnicalTest.ApplicationUnderTest.Pages
             {
                 Console.WriteLine("Exception");
             }
+        }
+
+        public void VerifyFirstFiveSearchResults(string searchTerm)
+        {
+
+            foreach (IWebElement ele in GetElements(SearchResults))
+            {
+                string? actualSearchResultsText = ele.Text;
+                int actualSearchResultsCount = GetElements(SearchResults).Count;
+                for (int i = 0; i < actualSearchResultsCount; i++)
+                {
+
+                    if (actualSearchResultsText != null)
+                    {
+                        Assert.IsTrue(actualSearchResultsText.Contains(searchTerm), "The search results do not show the expected search term");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Exception");
+                    }
+                }
+            }
+            
         }
     }
 }

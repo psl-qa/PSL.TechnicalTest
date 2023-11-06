@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium.Support.Extensions;
 using OpenQA.Selenium.Support.UI;
+using System.Collections.Generic;
 using ExpectedConditions = SeleniumExtras.WaitHelpers.ExpectedConditions;
 
 namespace PSL.TechnicalTest.Hooks
@@ -60,6 +61,21 @@ namespace PSL.TechnicalTest.Hooks
             try
             {
                 element = _driver.FindElement(locator);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
+            return element;
+        }
+
+        public IReadOnlyCollection<IWebElement>? GetElements(By locator)
+        {
+            IReadOnlyCollection<IWebElement>? element = null;
+            try
+            {
+                element = _driver.FindElements(locator);
             }
             catch (Exception e)
             {

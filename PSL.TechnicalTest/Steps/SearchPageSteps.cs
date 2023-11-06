@@ -27,5 +27,12 @@ namespace PSL.TechnicalTest.Steps
         {
             SearchPage.VerifySearchResults(searchTerm);
         }
+
+        [Then(@"the user can verify results related to (.*) on the search page")]
+        public void ThenTheUserCanVerifyResultsRelatedToOnTheSearchPage(string searchTerm)
+        {
+            SearchPage.VerifyFirstFiveSearchResults(searchTerm);
+        }
+
     }
 }
